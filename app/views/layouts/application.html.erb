@@ -11,6 +11,11 @@
   </head>
 
   <body>
+    <nav>
+    <% if user_signed_in? %>
+      <div><%= link_to "Sing_out", destroy_user_session_path, method: :destroy %></div>
+    <% end %>
+    </nav>
     <% flash.each do |name, message| %>
       <div class='<%= name %>'><%= message %></div>
     <% end %>
