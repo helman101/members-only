@@ -16,7 +16,7 @@
         <td><%= post.title %></td>
         <td><%= post.body %></td>
         <% if user_signed_in? %>
-          <td>by <%= current_user.name %></td>
+          <td>by <%= post.user.name %></td>
         <% else %>
           <td>by Anonymous</td>
         <% end %>
