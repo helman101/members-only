@@ -2,10 +2,10 @@
 
 # Members only
 
-> A super-basic Posts app made with rails and run in sql, app working for create a post, and see it also you are able to create a User 
-> and Sign-in, Sing-up or Sing-out.
+> A basic Posts app made with rails and run in SQL, app working for creating a post,
+> And see it also you can create a User and Sign-in, Sing-up, or Sing-out.
 
-![screenshot](./blog.PNG)
+![screenshot](./members-only.PNG)
 
 
 ## Built With
@@ -83,5 +83,5 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](lic.url) licensed.
+This project is [MIT](LICENSE) licensed.
 
