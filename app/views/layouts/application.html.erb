@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MembersOnly</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav>
+    <% if user_signed_in? %>
+      <div><%= link_to "Sing Out", destroy_user_session_path, method: :delete %></div>
+    <% else %>
+      <span><%= link_to "Sing In", new_user_session_path %></span> | 
+      <span><%= link_to "Sing Up", new_user_registration_path %></span>
+    <% end %>
+    </nav>
+    <% flash.each do |name, message| %>
+      <div class='<%= name %>'><%= message %></div>
+    <% end %>
+      
+    <%= yield %>
+  </body>
+</html>
