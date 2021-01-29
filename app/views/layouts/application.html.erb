@@ -10,18 +10,28 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <nav>
-    <% if user_signed_in? %>
-      <div><%= link_to "Sing Out", destroy_user_session_path, method: :delete %></div>
-    <% else %>
-      <span><%= link_to "Sing In", new_user_session_path %></span> | 
-      <span><%= link_to "Sing Up", new_user_registration_path %></span>
+  <body> 
+    <% if flash[:notice] %>
+      <div class="text-center">
+        <p class="alert alert-success mb-0"><%= notice %></p>
+      </div>
     <% end %>
+    <% if flash[:alert] %>
+      <div class="text-center">
+        <p class="alert alert-danger mb-0"><%= alert %></p>
+      </div>
+    <% end %>
+    <nav class='navbar navbar-expand-lg bg-info justify-content-between'>
+      <%= link_to "Home", root_path, class: 'navbar-brand text-white nav-item'%>
+      <div>
+        <% if user_signed_in? %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn btn-danger align-self-end nav-link'%>
+        <% else %>
+          <%= link_to "Sign In", new_user_session_path, class: 'btn text-white btn-link align-self-center' %> | 
+          <%= link_to "Sign Up", new_user_registration_path, class: 'btn text-white btn-link align-self-center' %>
+        <% end %>
+      </div>
     </nav>
-    <% flash.each do |name, message| %>
-      <div class='<%= name %>'><%= message %></div>
-    <% end %>
       
     <%= yield %>
   </body>
